@@ -1,0 +1,22 @@
+
+<div class="grid">
+  <div class="col-12 md:col-6 lg:col-3" *ngFor="let article of articles">
+    <p-card
+      header="{{ article.name }}"
+      styleClass="p-card-shadow"
+      class="m-6 mt-8"
+    >
+      <ng-template pTemplate="header">
+        <img
+          alt="Card"
+          [src]="'data:image/jpeg;base64,' + article.picture"
+          width="300"
+          height="350"
+        />
+      </ng-template>
+      <p>
+        <span class="price">{{ article.price }} MAD</span>
+      </p>
+    </p-card>
+  </div>
+</div>

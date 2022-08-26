@@ -1,0 +1,62 @@
+<form [formGroup]="artcileForm" (ngSubmit)="onSubmit(artcileForm)">
+  <p-card
+    header="Create article"
+    [style]="{ width: '50rem', 'margin-bottom': '6em', margin: '5rem' }"
+  >
+    <p>
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          formControlName="name"
+          type="text"
+          pInputText
+          required
+          [ngClass]="{
+            'is-invalid ng-dirty ng-invalid p-mr-4 ':
+              submitted && f['name'].errors
+          }"
+        />
+
+        <p-message
+          *ngIf="submitted && f['name'].errors"
+          class="invalid-feedback"
+          severity="error"
+          text="Field is required"
+        ></p-message>
+        <label for="float-input">Article Name</label>
+      </span>
+
+      <br />
+
+      <span class="p-float-label">
+        <input
+          id="float-input"
+          formControlName="price"
+          type="number"
+          pInputText
+          required
+          [ngClass]="{
+            'is-invalid ng-dirty ng-invalid p-mr-4 ':
+              submitted && f['price'].errors
+          }"
+        />
+
+        <p-message
+          *ngIf="submitted && f['price'].errors"
+          severity="error"
+          text="Price is required"
+          #fileInput
+        ></p-message>
+        <label for="float-input">Price</label> </span
+      ><br />
+
+      <span class="p-float-label">
+        <input type="file" name="" (change)="onFileSelect($event)" />
+      </span>
+    </p>
+
+    <ng-template pTemplate="footer">
+      <p-button label="Save" icon="pi pi-check" type="submit"></p-button>
+    </ng-template>
+  </p-card>
+</form>
